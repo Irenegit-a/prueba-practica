@@ -1,0 +1,26 @@
+<div class="all">
+    <div class="page">
+        <h1>Inicia sesión:</h1>
+        <div class="form row">
+            <div class="login-form  col-sm-12 col-md-12" action="" novalidate>
+                <input
+                    type="text"
+                    placeholder="nombre"
+                    formControlName="logName"
+                    #logName
+                >
+                <input
+                    type="datetime-local"
+                    placeholder="fecha de nacimiento"
+                    formControlName="logDate"
+                    #logDate
+                >
+                <button type="submit">Entrar</button>
+                <p class="message">¿No estás registrado aún? <a href="register">Crear cuenta</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- (ngSubmit)="onSubmit()" [formGroup]="registerForm" -->
