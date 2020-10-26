@@ -15,7 +15,7 @@ class User {
     }
 }
 
-let newUser = null;
+let newUser = new User;
 
 // app.get("http://hello-world.innocv.com/api/user", function(req, res)
 //     {

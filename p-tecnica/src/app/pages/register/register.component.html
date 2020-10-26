@@ -1,8 +1,7 @@
 <div class="all">
     <div class="page">
-        <h1>Regístrate:</h1>
+        <h1>¡Créate un nuevo usuario!</h1>
         <div class="form">
-            
             <form class="register-form" [formGroup]="registerForm" (ngSubmit)="save($event)" novalidate>
                 <input
                     type="text"
@@ -10,48 +9,19 @@
                     formControlName="name"
                     required
                 >
-                <p class="limit">{{ nameField.value.length }}/11</p>
-                <div *ngIf="nameField.errors && nameField.touched">
-                    <span *ngIf="nameField.hasError('required')">Mínimo de 3 caracteres y máximo de 11; sin números*</span>
-                    <!-- <span *ngIf="nameField.hasError('required')">Campo obligatorio*</span> -->
-                </div>
+                <p class="limit">{{ nameField.value.length }}/15</p>
+                    <span *ngIf="nameField.errors && nameField.touched">Mínimo de 3 caracteres y máximo de 15; sin números*</span>
 
                 <input
-                    type="text"
-                    placeholder="confirma tu nombre de usuario"
-                    formControlName="confName"
-                    required
-                >
-                <span>
-                    Los nombres deben coincidir*
-                </span>
-
-                <input
-                    type="datetime-local"
-                    placeholder="fecha de nacimiento"
+                    type="date"
                     formControlName="date"
                     required
                 >
-                <div *ngIf="dateField.errors && nameField.touched">
-                    <span>Indica tu fecha de nacimiento*</span>
-                    <!-- <span *ngIf="dateField.hasError('required')">Campo obligatorio*</span> -->
-                </div>
+                <span>Indica tu fecha de nacimiento*</span>
 
-                <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
-                <p class="message">¿Ya estás registrado? <a href="login">Entrar</a> </p>
+                <button type="submit" [disabled]="registerForm.invalid" (click)="postUser(name, date)">Registrarse</button>
+                <p class="message">¿Ya creaste uno? <a href="info">Entrar</a> </p>
             </form>
         </div>
-        <!-- <div>{{result}}</div> -->
     </div>
 </div>
-
-
-
-<!-- (ngSubmit)="onSubmit()" [formGroup]="registerForm" -->
-
-<!-- [(ngModel)]="model.name" -->
-
-
-<!-- *ngIf="this.registerForm.get('name').errors?.minLength"   EN SPAN DE NAME -->
-<!-- *ngIf="this.registerForm.get('confName').errors?.valName"   EN SPAN DE CONFIRMAR NAME -->
-<!-- *ngIf="this.registerForm.get('date').errors?.required"  EN SPAN DE DATE -->

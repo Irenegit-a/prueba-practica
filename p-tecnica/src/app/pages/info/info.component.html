@@ -1,98 +1,42 @@
 <div class="all">
     <a href="profile" class="right">
-        PERFIL
+        EDICIONES
     </a>
     <a href="info" class="left">
         INFO
     </a>
-    
-    <!-- esto está mal, no funciona, y al final lo dejé así porque ya dejé de probar, pero lo del col y eso no va -->
-    <table class="row chart">
-        <tr class="col-sm-12 col-md-12">
-            <th class="col-sm-4 col-md-4">nombre</th>
-            <th class="col-sm-4 col-md-4">fecha de nacimiento</th>
-            <th class="col-sm-4 col-md-4">id</th>
-        </tr>
 
-        <tr class="col-sm-12 col-md-12">
-            <td class="col-sm-4 col-md-4">dato 1</td>
-            <td class="col-sm-4 col-md-4">dato 2</td>
-            <td class="col-sm-4 col-md-4">dato 3</td>
-        </tr>
-    </table>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="col-12" >
-    <nav class="row">
-        <a routerLink="/profile" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">PERFIL</a>
-        <a routerLink="/info" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">INFO</a>
-    </nav>
-</div> -->
-
-
-
-
-
-
-<!-- 
-
-<body class="col-12">
-
-    <h2 class="centrar">Estamos en CIUDADES</h2>
-
-    <p>ciudades works!</p>
-
-    <div *ngIf="ciudades.length === 0; else siHay">
-        <span>Oh, oh... no hay ciudades que mostrar</span>
+    <div class="searchId">
+        <input
+            type="number"
+            placeholder="indica el id del usuario"
+            formControlName="id"
+            required
+        >
+        <!-- <button type="button" (click)="oneUser(users.id)">Buscar</button> -->
+        <!-- <tr *ngFor="let i of users">
+            <td>{{i.name}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.id}}</td>
+        </tr> -->
     </div>
-
-        <ng-template #siHay>
-            <table class="tabla_cius">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Código</th>
-                    <th>País</th>
-                    <th>Temps</th>
-                    <th>Vients</th>
-                    <th>Precipits</th>
-                </tr>
-                <tr *ngFor="let ciudad of ciudades ; let nombre_cualquiera = even" [ngClass]="{'filasPar': nombre_cualquiera}">
-                    <td>{{ciudad.nombre}}</td>
-                    <td>{{ciudad.pais}}</td>
-                    <td>{{ciudad.codigo}}</td>
-                    <td>{{ciudad.clima.temperatura}}</td>
-                    <td>{{ciudad.clima.viento}}</td>
-                    <td>{{ciudad.clima.precipitaciones}}</td>
-                </tr>
-            </table>
-        </ng-template>
-
-        <br>
-        <hr>
-        <br>
-        
-        <form action="">
-            <input type="text" value="" #nuevo_nombre placeholder="nombre">
-            <input type="text"value="" #nuevo_pais placeholder="pais">
-            <input type="text" value="" #nuevo_codigo placeholder="código">
-            <input type="number" value="" #nuevo_temperatura placeholder="temperatura">
-            <input type="number" value="" #nuevo_viento placeholder="viento">
-            <input type="number" value="" #nuevo_precipitaciones placeholder="precipitaciones">
-            <br>
-            <br>
-            <button type="submit" (click)="insertar(nuevo_nombre, nuevo_pais, nuevo_codigo, nuevo_temperatura, nuevo_viento, nuevo_precipitaciones)">¿Funciono?</button>
-        </form>
     
- 
-    
-</body> -->
+    <div *ngIf="users === null; else showIt">
+        <p class="errorMessage">Oh, oh... parece que ha habido un error</p>
+    </div>
+    <ng-template #showIt>
+        <table class="row chart">
+            <tr>
+                <th>nombre</th>
+                <th>fecha de nacimiento</th>
+                <th>id</th>
+            </tr>
+
+            <tr *ngFor="let i of users ; let mostrar = even" [ngClass]= "{'filasPar': mostrar}">
+                <td>{{i.name}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.id}}</td>
+            </tr>
+        </table>
+    </ng-template>
+</div>

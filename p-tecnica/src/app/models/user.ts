@@ -1,7 +1,7 @@
 export class User {
-    name: string;
+    name: String;
     date: Date;
-    id: number;
+    id: Number;
     
     constructor(){}
 }
