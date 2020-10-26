@@ -19,6 +19,11 @@
             <td>{{i.date}}</td>
             <td>{{i.id}}</td>
         </tr> -->
+        <!-- <div *ngFor="let i of users">
+            <p>{{ i.id.name }}</p>
+            <p>{{ i.id.date }}</p>
+            <p>{{ i.id.id }}</p>
+        </div> -->
     </div>
     
     <div *ngIf="users === null; else showIt">
