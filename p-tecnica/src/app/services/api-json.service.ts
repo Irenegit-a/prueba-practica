@@ -16,19 +16,15 @@ export class apiJsonService {
 
   getJson(){
     return this.http.get(this.url)
-  }
+  };
 
-  // getOneJson(){
-  //   return this.http.get(this.url)
-  // };
-
-  searchById(id): Observable<any>{
+  getOneJson(id): Observable<any>{
     return this.http.get('${http://hello-world.innocv.com/api/user}/${id}')
   };
 
   postUser(data): Observable<any>{
     return this.http.post(url, data)
-  }
+  };
 
   updateUser(id, data): Observable<any>{
     return this.http.put('${http://hello-world.innocv.com/api/user}/${id}', data)

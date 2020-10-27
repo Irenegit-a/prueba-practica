@@ -1,7 +1,5 @@
-export class User {
+export interface User {
     name: String;
     date: Date;
-    id: Number;
-    
-    constructor(){}
+    idUser: Number;
 }

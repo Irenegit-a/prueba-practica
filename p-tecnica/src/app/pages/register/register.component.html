@@ -1,45 +1,8 @@
-<!-- <div style="width: 500px; margin: auto;">
-    <div class="submit-form">
-      <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            required
-            [(ngModel)]="user.name"
-            name="name"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="description">Description</label>
-          <input
-            type="date"
-            class="form-control"
-            id="date"
-            required
-            [(ngModel)]="user.date"
-            name="date"
-          />
-        </div>
-  
-        <button (click)="postUser()">Create</button>
-      </div>
-  
-      <div *ngIf="submitted">
-        <h3>You successfully created a product!</h3>
-        <button (click)="postUser()">New..</button>
-      </div>
-    </div>
-  </div> -->
-
-
 
 <div class="all">
     <div class="page">
         <h1>¡Créate un nuevo usuario!</h1>
+
         <div class="form" *ngIf="!submitted">
             <form class="register-form" [formGroup]="registerForm" (ngSubmit)="save($event)" novalidate>
                 <input
@@ -53,11 +16,14 @@
                     required
                 >
                 <p class="limit">{{ nameField.value.length }}/15</p>
-                    <span *ngIf="nameField.errors && nameField.touched">Mínimo de 3 caracteres y máximo de 15; sin números*</span>
+                <span *ngIf="nameField.errors && nameField.touched">Mínimo de 3 caracteres y máximo de 15; sin números*</span>
 
                 <input
                     type="date"
                     formControlName="date"
+                    id="date"
+                    [(ngModel)]="user.date"
+                    date="date"
                     required
                 >
                 <span>Indica tu fecha de nacimiento*</span>
@@ -66,9 +32,10 @@
                 <p class="message">¿Ya creaste uno? <a href="info">Entrar</a> </p>
             </form>
         </div>
+        
         <div *ngIf="submitted">
             <h3>¡Usuario creado!</h3>
-            <button type="button">Volver</button>
+            <button class="created" type="button" (click)="navigateToInfo()">Acceder</button>
         </div>
     </div>
 </div>

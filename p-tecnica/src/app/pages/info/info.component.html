@@ -6,41 +6,43 @@
         INFO
     </a>
 
-    <div class="searchId">
+    <!-- <div class="searchId">
         <input
             type="number"
             placeholder="indica el id del usuario"
-            formControlName="id"
+            formControlName="idUser"
+            id="idUser"
+            name="idUser"
             required
         >
-        <!-- <button type="button" (click)="oneUser(users.id)">Buscar</button> -->
-        <!-- <tr *ngFor="let i of users">
-            <td>{{i.name}}</td>
-            <td>{{i.date}}</td>
-            <td>{{i.id}}</td>
-        </tr> -->
-        <!-- <div *ngFor="let i of users">
-            <p>{{ i.id.name }}</p>
-            <p>{{ i.id.date }}</p>
-            <p>{{ i.id.id }}</p>
-        </div> -->
-    </div>
+        
+        <button type="button" (click)="searchById()">Buscar</button>
+        <div *ngIf="searchById === true; else showWithId"></div>
+
+        <ng-template #showWithId>
+          <tr *ngFor="let user of users">
+            <td>{{user.name}}</td>
+            <td>{{user.date}}</td>
+            <td>{{user.idUser}}</td>
+          </tr>
+        </ng-template>
+    </div> -->
     
     <div *ngIf="users === null; else showIt">
         <p class="errorMessage">Oh, oh... parece que ha habido un error</p>
     </div>
     <ng-template #showIt>
-        <table class="row chart">
+        <table class="chart">
             <tr>
                 <th>nombre</th>
                 <th>fecha de nacimiento</th>
                 <th>id</th>
             </tr>
 
-            <tr *ngFor="let i of users ; let mostrar = even" [ngClass]= "{'filasPar': mostrar}">
-                <td>{{i.name}}</td>
-                <td>{{i.date}}</td>
-                <td>{{i.id}}</td>
+            <tr *ngFor="let user of users ; let mostrar = even" [ngClass]= "{'filasPar': mostrar}">
+                <td>{{user.name}}</td>
+                <td>{{user.date}}</td>
+                <td>{{user.idUser}}</td>
             </tr>
         </table>
     </ng-template>

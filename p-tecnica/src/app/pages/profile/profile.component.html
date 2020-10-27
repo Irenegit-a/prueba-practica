@@ -8,49 +8,52 @@
 
     <div class="profile-forms">
         <h3>Editar usuario</h3>
-            <form [formGroup]="editForm" (ngSubmit)="save($event)" novalidate>
-                <input
-                    type="number"
-                    placeholder="indica el id del usuario"
-                    formControlName="id"
-                    required
-                >
-                <span *ngIf="idField.errors && idField.touched">Solo permitidos números*</span>
+        <form [formGroup]="editForm" (ngSubmit)="save($event)" novalidate>
+            <input
+                type="number"
+                placeholder="indica el id del usuario"
+                formControlName="idUser"
+                id="idUser"
+                [(ngModel)]="currentUser.idUser"
+                name="idUser"
+                required
+            >
+            <input
+                type="text"
+                placeholder="nombre"
+                formControlName="name"
+                id="name"
+                [(ngModel)]="currentUser.name"
+                name="name"
+                required                       
+            >
+            <p class="limit">{{ nameField.value.length }}/15</p>
 
-                <input
-                    type="text"
-                    placeholder="nombre"
-                    formControlName="name"
-                    required
-                >
-                <p class="limit">{{ nameField.value.length }}/15</p>
-                <div *ngIf="nameField.errors && nameField.touched">
-                    <span>Mínimo de 3 caracteres y máximo de 15; sin números*</span>
-                </div>
+            <input
+                type="date"
+                required
+            >
+            <span>Indica tu fecha de nacimiento*</span>
 
-                <input
-                    type="date"
-                    formControlName="date"
-                    required
-                >
-                <span>Indica tu fecha de nacimiento*</span>
-
-                <button type="submit" [disabled]="editForm.invalid">Confirmar cambios</button>
-            </form>
+            <button type="submit" [disabled]="editForm.invalid">Confirmar cambios</button>
+        </form>
     </div>
 
 
     <div class="profile-forms" >
         <h3>Eliminar usuario</h3>
-            <div [formGroup]="deleteForm" (ngSubmit)="save($event)" novalidate>
-                <input
-                    type="number"
-                    placeholder="indica el id del usuario"
-                    formControlName="id"
-                    required
-                >
-            
-                <button type="submit" [disabled]="deleteForm.invalid">Eliminar usuario</button>
-            </div>
+        <div [formGroup]="deleteForm" (ngSubmit)="save($event)" novalidate>
+            <input
+                type="number"
+                placeholder="indica el id del usuario"
+                formControlName="idUser"
+                id="idUser"
+                [(ngModel)]="user.idUser"
+                name="idUser"
+                required
+            >
+        
+            <button type="submit" [disabled]="deleteForm.invalid" (click)="deleteById(user.idUser)">Eliminar usuario</button>
+        </div>
     </div>
 </div>
