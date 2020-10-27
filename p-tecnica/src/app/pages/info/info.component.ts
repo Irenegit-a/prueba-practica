@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { apiJsonService } from 'src/app/services/api-json.service';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
@@ -13,7 +14,6 @@ export class InfoComponent implements OnInit {
 
 users: any;
 currentUser = null;
-currentIndex = -1;
 message = "";
 
   constructor( private api: apiJsonService, private http:HttpClient, private route: ActivatedRoute, private router: Router )

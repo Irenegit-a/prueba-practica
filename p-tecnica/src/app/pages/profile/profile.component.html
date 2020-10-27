@@ -12,10 +12,10 @@
             <input
                 type="number"
                 placeholder="indica el id del usuario"
-                formControlName="idUser"
-                id="idUser"
-                [(ngModel)]="currentUser.idUser"
-                name="idUser"
+                formControlName="id"
+                id="id"
+                [(ngModel)]="user.id"
+                name="id"
                 required
             >
             <input
@@ -23,7 +23,7 @@
                 placeholder="nombre"
                 formControlName="name"
                 id="name"
-                [(ngModel)]="currentUser.name"
+                [(ngModel)]="user.name"
                 name="name"
                 required                       
             >
@@ -46,14 +46,14 @@
             <input
                 type="number"
                 placeholder="indica el id del usuario"
-                formControlName="idUser"
-                id="idUser"
-                [(ngModel)]="user.idUser"
-                name="idUser"
+                formControlName="id"
+                id="id"
+                [(ngModel)]="user.id"
+                name="id"
                 required
             >
         
-            <button type="submit" [disabled]="deleteForm.invalid" (click)="deleteById(user.idUser)">Eliminar usuario</button>
+            <button type="submit" [disabled]="deleteForm.invalid" (click)="deleteById(user.id)">Eliminar usuario</button>
         </div>
     </div>
 </div>

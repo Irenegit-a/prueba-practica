@@ -6,27 +6,26 @@
         INFO
     </a>
 
-    <!-- <div class="searchId">
+    <div class="searchId">
         <input
             type="number"
             placeholder="indica el id del usuario"
-            formControlName="idUser"
-            id="idUser"
-            name="idUser"
+            formControlName="id"
+            id="id"
+            name="id"
             required
-        >
-        
-        <button type="button" (click)="searchById()">Buscar</button>
-        <div *ngIf="searchById === true; else showWithId"></div>
+        >        
+        <button type="button">Buscar</button>
+        <!-- <p *ngIf="searchById() !== true; else showWithId">Ninguna búsqueda por id</p>
 
         <ng-template #showWithId>
           <tr *ngFor="let user of users">
             <td>{{user.name}}</td>
             <td>{{user.date}}</td>
-            <td>{{user.idUser}}</td>
+            <td>{{user.id}}</td>
           </tr>
-        </ng-template>
-    </div> -->
+        </ng-template> -->
+    </div>
     
     <div *ngIf="users === null; else showIt">
         <p class="errorMessage">Oh, oh... parece que ha habido un error</p>
@@ -42,7 +41,7 @@
             <tr *ngFor="let user of users ; let mostrar = even" [ngClass]= "{'filasPar': mostrar}">
                 <td>{{user.name}}</td>
                 <td>{{user.date}}</td>
-                <td>{{user.idUser}}</td>
+                <td>{{user.id}}</td>
             </tr>
         </table>
     </ng-template>

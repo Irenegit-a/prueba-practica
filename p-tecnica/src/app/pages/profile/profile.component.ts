@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { apiJsonService } from 'src/app/services/api-json.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user';
-import { NgModule } from '@angular/core';
 
 
 @Component({
@@ -19,7 +17,7 @@ export class ProfileComponent implements OnInit {
   {
     name: '',
     date: '',
-    idUser: ''
+    id: ''
   };
 
   users: User[];
@@ -37,7 +35,7 @@ export class ProfileComponent implements OnInit {
     
 
   updateById(): void {
-    this.api.updateUser(this.currentUser.idUser, this.currentUser)
+    this.api.updateUser(this.currentUser.id, this.currentUser)
     .subscribe(
       response => {
         console.log(response);
@@ -47,8 +45,8 @@ export class ProfileComponent implements OnInit {
   };
 
 
-  deleteById(idUser): void {
-    this.api.deleteUser(this.user.idUser)
+  deleteById(id): void {
+    this.api.deleteUser(this.user.id)
     .subscribe(
       response => {
         console.log(response);
@@ -70,7 +68,7 @@ export class ProfileComponent implements OnInit {
     });
 
     this.deleteForm = this.FormBuilder.group({
-      idUser: ['', [Validators.required, Validators.pattern(/^[1-9]+$/)]]
+      id: ['', [Validators.required, Validators.pattern(/^[1-9]+$/)]]
     });
   };
 

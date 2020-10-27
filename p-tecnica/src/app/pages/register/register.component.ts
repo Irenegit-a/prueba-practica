@@ -3,8 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { apiJsonService } from 'src/app/services/api-json.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-
 
 
 @Component({
